@@ -8,10 +8,17 @@ const { userM, favoriteM } = require("./models/allModels");
 // Recuerda pasarle la información de tu archivo '.env'.
 
 // URL ----> postgres://DB_USER:DB_PASSWORD@DB_HOST/rickandmorty
-const sequelize = new Sequelize(
-  `postgresql://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}`,
-  { logging: false }
-);
+const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
+  dialect: "postgres",
+  host: DB_HOST,
+  port: DB_PORT,
+  dialectOptions: {
+    ssl: {
+      require: true,
+      // Más opciones de configuración de SSL/TLS aquí
+    },
+  },
+});
 
 // EJERCICIO 05
 // Debajo de este comentario puedes ejecutar la función de los modelos.

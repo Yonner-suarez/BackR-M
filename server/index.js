@@ -3,9 +3,9 @@ const { conn } = require("./src/DB_connection");
 
 require("dotenv").config();
 
-const { PORT } = process.env;
+const port = process.env.PORT || 3000;
 
-app.listen(PORT, async () => {
-  console.log(`estamos en el puerto ${PORT}`);
+app.listen(port, async () => {
+  console.log(`estamos en el puerto ${port}`);
   await conn.sync({ force: false });
 });
