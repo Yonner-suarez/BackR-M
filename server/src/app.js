@@ -7,8 +7,8 @@ const cors = require("cors");
 app.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
-    "http://:localhost:3000"
-    //"https://rick-and-morty-integration.vercel.app"
+    //"http://:localhost:3000"
+    "https://rick-and-morty-integration.vercel.app"
   );
   res.header("Access-Control-Allow-Credentials", "true");
   res.header(
